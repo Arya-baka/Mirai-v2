@@ -1,0 +1,86 @@
+{
+  "name": "sagiri",
+  "version": "3.1.1",
+  "description": "A simple, lightweight and actually good JS wrapper for the SauceNAO API.",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "contributors": [
+    "sr229",
+    "Michael Mitchell <michael@ovyerus.com> (https://ovyerus.com)"
+  ],
+  "homepage": "https://github.com/ClarityCafe/Sagiri#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ClarityCafe/Sagiri"
+  },
+  "bugs": {
+    "url": "https://github.com/ClarityCafe/issues"
+  },
+  "funding": [
+    {
+      "type": "individual",
+      "url": "https://github.com/sponsors/Ovyerus"
+    },
+    {
+      "type": "individual",
+      "url": "https://ko-fi.com/capuccino"
+    }
+  ],
+  "scripts": {
+    "build": "tsc",
+    "coverage": "jest --coverage",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "prepublishOnly": "npm run build",
+    "test": "jest",
+    "test:debug": "cross-env DEBUG=sagiri jest"
+  },
+  "keywords": [
+    "hitorigoto",
+    "sagiri",
+    "saucenao",
+    "simple",
+    "easy",
+    "api",
+    "functional",
+    "image",
+    "source"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "dependencies": {
+    "bent": "^7.0.4",
+    "debug": "^4.1.1",
+    "form-data": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/bent": "7.3.0",
+    "@types/debug": "4.1.5",
+    "@types/jest": "26.0.14",
+    "@types/lodash.ismatch": "4.4.6",
+    "@types/node": "13.13.5",
+    "@typescript-eslint/eslint-plugin": "4.3.0",
+    "@typescript-eslint/parser": "4.3.0",
+    "cross-env": "7.0.2",
+    "eslint": "7.10.0",
+    "eslint-config-clarity": "0.5.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-prettier": "3.1.4",
+    "eslint-plugin-react": "7.21.2",
+    "eslint-plugin-react-hooks": "4.1.2",
+    "eslint-plugin-sift": "0.3.0",
+    "jest": "26.4.2",
+    "lodash.ismatch": "4.4.0",
+    "nock": "13.0.4",
+    "parse-multipart": "1.0.4",
+    "prettier": "2.1.2",
+    "ts-jest": "26.4.1",
+    "ts-node": "9.0.0",
+    "typescript": "4.0.3"
+  },
+  "files": [
+    "dist"
+  ]
+}
