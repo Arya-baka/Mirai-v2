@@ -29,7 +29,7 @@ module.exports.run = async function({
         if (!args[0]) {
             api.sendMessage("Vui lòng nhập tên anime", threadID, messageID)
         }
-        const res = await axios.get(encodeURI(`http://lawerpr0ject.herokuapp.com/other/anime?name=${args[0]}`));
+        const res = await axios.get(encodeURI(`http://api-ttk.herokuapp.com/other/anime?name=${args[0]}`));
         console.log(res.data);
         let data = res.data;
         let callback = function() {
