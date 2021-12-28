@@ -2,7 +2,7 @@ module.exports.config = {
     name: "waifu",
     version: "1.0.0",
     hasPermssion: 0,
-    credits: "Thiệu Trung Kiên",
+    credits: "Quang Minh",
     description: "[type]",
     commandCategory: "Random-img",
     usages: "[]",
@@ -25,38 +25,23 @@ module.exports.run = async function({
     } = event;
     var type;
     switch (args[0]) {
-        case "rem":
-            type = "rem";
-            break;
-        case "aqua":
-            type = "aqua";
+        case "kanna":
+            type = "kanna";
             break;
         case "umaru":
             type = "umaru";
             break;
-        case "kanna":
-            type = "kanna";
-            break;
-        case "kurumi":
-            type = "kurumi";
-            break;
-        case "lucy":
-            type = "lucy";
-            break;
-        case "sagiri":
-            type = "sagiri";
-            break;
-        case "chitanda":
-            type = "chitanda";
+        case "miku":
+            type = "miku";
             break;
         default:
-            return api.sendMessage(`❤️LIST WAIFU❤️\n»1/Rem\n»2/Aqua\n»3/Kanna\n»4/Umaru\n»5/Kurumi\n»6/Lucy\n»7/Sagiri\n»8/Chitanda`, threadID, messageID);
+            return api.sendMessage(`❤️LIST WAIFU❤️\n»1/Kanna\n»2/Umaru\n»3Miku`, threadID, messageID);
             break;
     }
-    axios.get(`http://trungkien.tk/waifu/${type}.php`).then(res => {
+    axios.get(`https://quangminh.mikubaka2608.repl.co/${type}`).then(res => {
         let callback = function() {
             api.sendMessage({
-                body: `Hi ${name}\nẢnh của bạn đây! `,
+                body: `Hi ${name}\nCô vợ ${type} xinh xắn của bạn đây nha! `,
                 attachment: fs.createReadStream(__dirname + `/cache/${type}.png`)
             }, event.threadID, () => fs.unlinkSync(__dirname + `/cache/${type}.png`), event.messageID);
         };
