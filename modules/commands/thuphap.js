@@ -17,7 +17,7 @@ module.exports.run = async function ({ api, event, args}) {
     const axios = require("axios");
     const fs = require("fs-extra");
     const qs = require("querystring");
-    if (args[0] == "help") {
+    if (args.length == 0) {
         api.sendMessage("ID: 1,2,3 (Tối đa 3 id)\nCú pháp: [ID]|[Số dòng]|[Text dòng 1]|[Text dòng 2, 3 nếu có]", event.threadID, event.messageID)
     }
     const content = args.join(" ").split("|").map(item => item = item.trim());
