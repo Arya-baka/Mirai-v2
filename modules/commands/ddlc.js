@@ -17,7 +17,7 @@ module.exports.run = async function ({ api, event, args}) {
     const axios = require("axios");
     const fs = require("fs-extra");
     const qs = require("querystring");
-    if (args[0] == "help") {
+    if (args.length == 0) {
         api.sendMessage("Character: monika, yuri, natsuki, sayori or m, y, n , s\nBackground: bedroom, class, closet, club, corridor, house, kitchen, residential, sayori_bedroom\nCú pháp: [character]|[background]|[text]", event.threadID, event.messageID)
     }
     const content = args.join(" ").split("|").map(item => item = item.trim());
