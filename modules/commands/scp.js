@@ -18,7 +18,7 @@ module.exports.run = async function({ api, event, args, utils, Users,Threads }) 
            const res = await axios.get(encodeURI(`https://le31.glitch.me/other/scp?q=${args[0]}`));
            console.log(res.data);
            let data = res.data;
-           return api.sendMessage(`Encode: ${data.data}`, event.threadID, event.messageID);
+           return api.sendMessage(`Info: ${data.data}`, event.threadID, event.messageID);
            } 
        }
         catch {
