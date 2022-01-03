@@ -1,5 +1,5 @@
 module.exports.config = {
-  name: "animeicon",
+  name: "anime",
   version: "1.0.0",
   hasPermssion: 0,
   credits: "Quang Minh",
