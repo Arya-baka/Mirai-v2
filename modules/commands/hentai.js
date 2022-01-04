@@ -1,25 +1,46 @@
 module.exports.config = {
-  name: "hentai", // tên lệnh
-  version: "1.0.0", // phiên bản
-  hasPermssion: 0, // quyền hạn
-  credits: "", // tác giả
-  description: "Random ảnh", // mô tả lệnh
-  commandCategory: "Random-img", // phân loại lệnh
-  usages: "", // cách sử dụng
-  cooldowns: 5 // thời gian chờ sau khi dùng lệnh
+    name: "hentai",
+    version: "1.0.0",
+    hasPermision: 0,
+    credit: "Quang Minh",
+    description: "Random ảnh hentai",
+    commandCategory: "Random-img",
+    usages: "",
+    cooldowns: 0,
 };
 
-module.exports.run = async function({ api, event }) {
-  const axios = require('axios');
-  const request = require('request');
-  const fs = require("fs");
-  axios.get('https://beginning-frames.000webhostapp.com/hentai.php').then(res => { //nhét api ảnh vào đây
-  let callback = function () {
-          api.sendMessage({
-            body: `Ảnh hentai của bạn đây !!`, //tin nhắn đi kèm với ảnh
-            attachment: fs.createReadStream(__dirname + `/cache/${event.senderID}.png`)
-          }, event.threadID, () => fs.unlinkSync(__dirname + `/cache/${event.senderID}.png`), event.messageID);
+module.exports.run = async function({
+    api,
+    event,
+    args,
+    utils,
+    Users,
+    Threads
+}) {
+    try {
+        let axios = require('axios');
+        let fs = require("fs-extra");
+        let request = require("request")
+        let {
+            threadID,
+            senderID,
+            messageID
+        } = event;
+        const res = await axios.get(encodeURI(`https://api.waifu.pics/nsfw/waifu`));
+        console.log(res.data);
+        let data = res.data;
+        let callback = function() {
+            return api.sendMessage({
+                body: `Ảnh hentai`,
+                attachment: fs.createReadStream(__dirname + `/cache/hentai.png`)
+            }, event.threadID, () => fs.unlinkSync(__dirname + `/cache/hentai.png`), event.messageID);
         };
-        request(res.data.url).pipe(fs.createWriteStream(__dirname + `/cache/${event.senderID}.png`)).on("close", callback);
-      })
+        return request(encodeURI(data.url))
+            .pipe(fs.createWriteStream(__dirname + `/cache/hentai.png`))
+            .on("close", callback);
+
+    } catch (err) {
+        console.log(err)
+        return api.sendMessage(`Đã xảy ra lỗi`, event.threadID)
+    }
 }
