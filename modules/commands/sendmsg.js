@@ -1,26 +1,47 @@
 module.exports.config = {
-    name: "sendmsg",
-    version: "0.0.2",
-    hasPermssion: 2,
-    credits: "Dũng UwU fix by HTHB",
-    description: "sendmsg",
-    commandCategory: "general",
-    usages: "sendmsg [user]/[thread] id msg",
-    cooldowns: 5,
+	name: "sendmsg",
+	version: "1.0.7",
+	hasPermssion: 2,
+	credits: "manhG mod by Tiadals", //Vui lòng giữ nguyên credit hoặc ăn đấm !
+	description: "Gửi tin hắn đến người dùng(user)/nhóm(thread) bằng ID!",
+	commandCategory: "Admin",
+	usages: "ID [Text]",
+	cooldowns: 5
 };
 
-module.exports.run = async function({ api, event, args, utils, Users }) {
-    let name1 = await Users.getNameUser(event.senderID);
-	const moment = require("moment-timezone");
-    var gio = moment.tz("Asia/Ho_Chi_Minh").format("HH:mm:ss D/MM/YYYY");
-    var msg = args.splice(2).join(" ");
-    if (args[0]=='user') {
-        return api.sendMessage(`TIN NHẮN RIÊNG TỪ ADMIN ${name1} ĐẾN BẠN !!!\nNội dung: ` + msg, args[1]).then(
-            api.sendMessage('Đã gửi tin nhắn đến thành viên ' + args[1] + ' thành công', event.threadID, event.messageID));
-    } else {
-            if (args[0]=='thread') { return api.sendMessage(`TIN NHẮN RIÊNG TỪ ADMIN ${name1} ĐẾN NHÓM BẠN !\nNội dung: ` + msg, args[1]).then(
-            api.sendMessage('Đã gửi tin nhắn đến nhóm ' + args[1] + ' thành công', event.threadID, event.messageID))
-            }
-                else return utils.throwError("sendmsg", event.threadID, event.messageID);
-        }
-    }
+	module.exports.run = async ({ api, event, args, getText }) => {
+		if (!args[0]) return api.sendMessage("Bạn chưa nhập nội dung cần gửi",event.threadID,event.messageID);
+		if (event.type == "message_reply") {
+		const request = global.nodemodule["request"];
+		const fs = require('fs')
+		const axios = require('axios')
+		
+		var getURL = await request.get(event.messageReply.attachments[0].url);
+		
+				var pathname = getURL.uri.pathname;
+		
+				var ext = pathname.substring(pathname.lastIndexOf(".") + 1);
+		
+				var path = __dirname + `/cache/snoti`+`.${ext}`;
+		
+		
+		
+		var abc = event.messageReply.attachments[0].url;
+			let getdata = (await axios.get(`${abc}`, { responseType: 'arraybuffer' })).data;
+		
+		  fs.writeFileSync(path, Buffer.from(getdata, 'utf-8'));
+		
+    
+	var idbox = args[0];
+    var reason = args.slice(1);
+
+	if (args.length == 0) api.sendMessage("Syntax error, use: sendmsg ID_BOX [lời nhắn]", event.threadID, event.messageID);
+	
+	else if(reason == "")api.sendMessage("Syntax error, use: sendmsg ID_BOX [lời nhắn]", event.threadID, event.messageID);
+	
+	else
+		api.sendMessage({body:"» Thông báo từ admin tới nhóm bạn «\n\n" + reason.join(" "), attachment: fs.createReadStream(path) }, idbox, () =>
+			api.sendMessage(`${api.getCurrentUserID()}`, () =>
+				api.sendMessage("Đã gửi lời nhắn: " + reason.join(" "), event.threadID)));
+}
+	}
