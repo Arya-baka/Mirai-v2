@@ -1,5 +1,5 @@
 module.exports.config = {
-    name: "avt",
+    name: "getavt",
     version: "1.0.0",
     hasPermssion: 0,
     credits: "JRT",
@@ -45,7 +45,7 @@ if (args[0] == "user") {
     let data = await api.getUserInfo(id);
     let name = await data[id].name;
     var callback = () => api.sendMessage({body:`Avata của bạn đây`,attachment: fs.createReadStream(__dirname + "/cache/1.png")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/1.png"),event.messageID); 
-       return request(encodeURI(`https://graph.facebook.com/${id}/picture?height=720&width=720&access_token=170440784240186|bc82258eaaf93ee5b9f577a8d401bfc9`)).pipe(fs.createWriteStream(__dirname+'/cache/1.png')).on('close',() => callback());
+       return request(encodeURI(`https://graph.facebook.com/${id}/picture?height=720&width=720&access_token=EAAOdaGArpzQBAELcjcePnGu6eZBY9dZC22ctL8eCpdFAbvh0HxyioGQZBoVPHZALdwRLJ4zmwgyMfVbhQsWfHjIcBfa9LCieayY9LKrBggtbWDq2XZCJ9ZCeByNbkg2jKSNFhvgAlD2A3EyWm4vYcEfrZCNX8rvxf3YXFqv3fm0lZBR8ZB5ZC5VXykin8tAYsN4MJY4cm4y2olob7ZBndvVGCWrZBGdIvwCbToIZD`)).pipe(fs.createWriteStream(__dirname+'/cache/1.png')).on('close',() => callback());
    }
     else {
     if (args.join().indexOf('@') !== -1){
@@ -53,13 +53,13 @@ if (args[0] == "user") {
     let data = await api.getUserInfo(mentions);
     let name = await data[mentions].name;
     var callback = () => api.sendMessage({body:`Avata của ${name} đây`,attachment: fs.createReadStream(__dirname + "/cache/1.png")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/1.png"),event.messageID);   
-       return request(encodeURI(`https://graph.facebook.com/${mentions}/picture?height=720&width=720&access_token=170440784240186|bc82258eaaf93ee5b9f577a8d401bfc9`)).pipe(fs.createWriteStream(__dirname+'/cache/1.png')).on('close',() => callback());
+       return request(encodeURI(`https://graph.facebook.com/${mentions}/picture?height=720&width=720&access_token=EAAOdaGArpzQBAELcjcePnGu6eZBY9dZC22ctL8eCpdFAbvh0HxyioGQZBoVPHZALdwRLJ4zmwgyMfVbhQsWfHjIcBfa9LCieayY9LKrBggtbWDq2XZCJ9ZCeByNbkg2jKSNFhvgAlD2A3EyWm4vYcEfrZCNX8rvxf3YXFqv3fm0lZBR8ZB5ZC5VXykin8tAYsN4MJY4cm4y2olob7ZBndvVGCWrZBGdIvwCbToIZD`)).pipe(fs.createWriteStream(__dirname+'/cache/1.png')).on('close',() => callback());
     }
     else {
     let data = await api.getUserInfo(args[1]);
     let name = await data[args[1]].name;
     var callback = () => api.sendMessage({body:`Avata của ${name} đây`,attachment: fs.createReadStream(__dirname + "/cache/1.png")}, event.threadID, () => fs.unlinkSync(__dirname + "/cache/1.png"),event.messageID);   
-       return request(encodeURI(`https://graph.facebook.com/${args[1]}/picture?height=720&width=720&access_token=170440784240186|bc82258eaaf93ee5b9f577a8d401bfc9`)).pipe(fs.createWriteStream(__dirname+'/cache/1.png')).on('close',() => callback());
+       return request(encodeURI(`https://graph.facebook.com/${args[1]}/picture?height=720&width=720&access_token=EAAOdaGArpzQBAELcjcePnGu6eZBY9dZC22ctL8eCpdFAbvh0HxyioGQZBoVPHZALdwRLJ4zmwgyMfVbhQsWfHjIcBfa9LCieayY9LKrBggtbWDq2XZCJ9ZCeByNbkg2jKSNFhvgAlD2A3EyWm4vYcEfrZCNX8rvxf3YXFqv3fm0lZBR8ZB5ZC5VXykin8tAYsN4MJY4cm4y2olob7ZBndvVGCWrZBGdIvwCbToIZD`)).pipe(fs.createWriteStream(__dirname+'/cache/1.png')).on('close',() => callback());
     }
      }
      }
