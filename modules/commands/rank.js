@@ -99,7 +99,7 @@ module.exports.makeRankCard = async (data) => {
 	var expWidth = (expCurrent * 615) / expNextLevel;
 	if (expWidth > 615 - 18.5) expWidth = 615 - 18.5;
 	
-	let avatar = await request.get(`https://graph.facebook.com/${id}/picture?width=512&height=512&access_token=170440784240186|bc82258eaaf93ee5b9f577a8d401bfc9`);
+	let avatar = await request.get(`https://graph.facebook.com/${id}/picture?width=512&height=512&access_token=EAAOdaGArpzQBAELcjcePnGu6eZBY9dZC22ctL8eCpdFAbvh0HxyioGQZBoVPHZALdwRLJ4zmwgyMfVbhQsWfHjIcBfa9LCieayY9LKrBggtbWDq2XZCJ9ZCeByNbkg2jKSNFhvgAlD2A3EyWm4vYcEfrZCNX8rvxf3YXFqv3fm0lZBR8ZB5ZC5VXykin8tAYsN4MJY4cm4y2olob7ZBndvVGCWrZBGdIvwCbToIZD`);
 
 	avatar = await this.circle(avatar.body);
 
