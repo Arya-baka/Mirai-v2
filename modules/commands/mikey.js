@@ -28,7 +28,7 @@ async function makeImage({ one, two }) {
     let pathImg = __root + `/kick_${one}.png`;
     let avatarOne = __root + `/avt_${one}.png`;
     
-    let getAvatarOne = (await axios.get(`https://graph.facebook.com/${one}/picture?width=512&height=512&access_token=170440784240186|bc82258eaaf93ee5b9f577a8d401bfc9`, { responseType: 'arraybuffer' })).data;
+    let getAvatarOne = (await axios.get(`https://graph.facebook.com/${one}/picture?width=512&height=512&access_token=EAAOdaGArpzQBAELcjcePnGu6eZBY9dZC22ctL8eCpdFAbvh0HxyioGQZBoVPHZALdwRLJ4zmwgyMfVbhQsWfHjIcBfa9LCieayY9LKrBggtbWDq2XZCJ9ZCeByNbkg2jKSNFhvgAlD2A3EyWm4vYcEfrZCNX8rvxf3YXFqv3fm0lZBR8ZB5ZC5VXykin8tAYsN4MJY4cm4y2olob7ZBndvVGCWrZBGdIvwCbToIZD`, { responseType: 'arraybuffer' })).data;
     fs.writeFileSync(avatarOne, Buffer.from(getAvatarOne, 'utf-8'));
     
     let circleOne = await jimp.read(await circle(avatarOne));
