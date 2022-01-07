@@ -1,0 +1,22 @@
+{
+  "name": "Nguyễn Minh",
+  "ID": "100034334834373",
+  "pet": [
+    {
+      "name": "Bonsly",
+      "type": "Rock",
+      "HP": 75,
+      "Attack": 120,
+      "Defense": 142.5,
+      "Speed": 15,
+      "coins": 20000,
+      "images": "https://raw.githubusercontent.com/Purukitto/pokemon-data.json/master/images/pokedex/hires/438.png"
+    }
+  ],
+  "foods": [],
+  "solo": {
+    "win": 0,
+    "lose": 0,
+    "draw": 0
+  }
+}
