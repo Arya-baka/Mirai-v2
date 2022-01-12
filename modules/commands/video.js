@@ -23,7 +23,7 @@ module.exports.handleReply = async function({ api, event, handleReply }) {
 	const { createReadStream, createWriteStream, unlinkSync, statSync } = global.nodemodule["fs-extra"];
 	ytdl.getInfo(handleReply.link[event.body - 1]).then(res => {
 	let body = res.videoDetails.title;
-	api.sendMessage(`Ðang x? l? video !\n-----------\n${body}\n-----------\nXin Vui l?ng Ð?i !`, event.threadID, (err, info) =>
+	api.sendMessage(`Ðang xử lí video !\n-----------\n${body}\n-----------\nXin vui lòng đợi !`, event.threadID, (err, info) =>
 	setTimeout(() => {api.unsendMessage(info.messageID) } , 100000));
     });
 	try {
@@ -52,7 +52,7 @@ module.exports.run = async function({ api, event, args }) {
 	const youtube = new YouTubeAPI(global.configModule[this.config.name].YOUTUBE_API);
 	const keyapi = global.configModule[this.config.name].YOUTUBE_API
 	
-	if (args.length == 0 || !args) return api.sendMessage('Ph?n t?m ki?m không ðý?c ð? tr?ng!', event.threadID, event.messageID);
+	if (args.length == 0 || !args) return api.sendMessage('Phần tìm kiếm không được để trống!', event.threadID, event.messageID);
 	const keywordSearch = args.join(" ");
 	const videoPattern = /^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+/gm;
 	const urlValid = videoPattern.test(args[0]);
@@ -70,7 +70,7 @@ module.exports.run = async function({ api, event, args }) {
 				.on("error", (error) => api.sendMessage(`Ð? x?y ra v?n ð? khi ðang x? l? request, l?i: \n${error}`, event.threadID, event.messageID));
 		}
 		catch {
-			api.sendMessage("Không th? x? l? yêu c?u c?a b?n!", event.threadID, event.messageID);
+			api.sendMessage("Không thể xử lí yêu cầu của bạn!", event.threadID, event.messageID);
 		}
 
 	}
@@ -106,7 +106,7 @@ let getthumnail = (await axios.get(`${linkthumnail}`, { responseType: 'arraybuff
 				msg += (`${num+=1}. ${value.title}\nTime: ${time}\nKênh: ${channel}\n-----------------------\n`);
       }
   
-      var body = `?? Có ${link.length} k?t qu? trùng v?i t? khoá t?m ki?m c?a b?n:\n??????????\n${msg}\nH?y reply(ph?n h?i) ch?n m?t trong nh?ng t?m ki?m trên`
+      var body = `?? Có ${link.length} kết quả trùng với từ khoá tìm kiếm của bạn:\n??????????\n${msg}\nH?y reply(phản hồi) chọn một trong những tìm kiếm trên`
       
 return api.sendMessage({attachment: imgthumnail, body: body}, event.threadID,(error, info) => global.client.handleReply.push({ 
   name: this.config.name, 
