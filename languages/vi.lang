@@ -58,8 +58,8 @@ users.needObject=Phải là một Object
 
 # includes/handle/handleCommand.js
 
-handleCommand.userBanned=Hiện tại bạn đang bị cấm sử dụng bot!\n%1\n%2\nVui lòng liên hệ https://facebook.com/yotsuba.kawaii.2608 để được unban
-handleCommand.threadBanned=Hiện tại nhóm của bạn đang bị cấm sử dụng bot!\n%1\n%2\nVui lòng liên hệ https://facebook.com/yotsuba.kawaii.2608 để được unban
+handleCommand.userBanned=Hiện tại bạn đang bị cấm sử dụng bot!\n%1\n%2\nVui lòng liên hệ https://www.facebook.com/HarunoSakura2608 để được unban
+handleCommand.threadBanned=Hiện tại nhóm của bạn đang bị cấm sử dụng bot!\n%1\n%2\nVui lòng liên hệ https://www.facebook.com/HarunoSakura2608 để được unban
 handleCommand.commandNotExist=Lệnh bạn sử dụng không tồn tại, có phải là lệnh "%1" hay không?
 handleCommand.commandThreadBanned=Nhóm bạn đã bị cấm sử dụng lệnh "%1"
 handleCommand.commandUserBanned=Bạn đã bị cấm sử dụng lệnh "%1"
