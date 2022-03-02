@@ -22,7 +22,7 @@ module.exports.run = async function({
     const fs = require("fs-extra");
     const qs = require("querystring");
     if (args[0] == "list") {
-        const a = await axios.get("https://api-ttk.herokuapp.com/taoanhdep/list");
+        const a = await axios.get("http://www.thieutrungkien.xyz/taoanhdep/list");
         var b = a.data.length;
         var x = a.data;
         var page = 1;
@@ -51,7 +51,7 @@ module.exports.run = async function({
             params = qs.stringify(params);
             const pathsave = __dirname + `/cache/banner.png`;
             let imageBuffer;
-            axios.get("https://api-ttk.herokuapp.com/canvas/taoanhdep?" + params, {
+            axios.get("https://www.thieutrungkien.xyz/canvas/taoanhdep?" + params, {
                     responseType: "arraybuffer"
                 })
                 .then(data => {
