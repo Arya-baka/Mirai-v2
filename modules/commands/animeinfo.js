@@ -32,7 +32,7 @@ module.exports.run = async function({
         const res = await axios.get(encodeURI(`http://www.thieutrungkien.xyz/other/anime?name=${args[0]}`));
         console.log(res.data);
         let data = res.data;
-        const translate = await axios.get(encodeURI(`https://api-ttk.herokuapp.com/other/translate?text=${data.noidung}&to=vi`));
+        const translate = await axios.get(encodeURI(`http://www.thieutrungkien.xyz/other/translate?text=${data.noidung}&to=vi`));
         var noidung = translate.data.translated;
         let callback = function() {
             return api.sendMessage({
