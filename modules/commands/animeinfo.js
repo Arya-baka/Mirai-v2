@@ -9,6 +9,11 @@ module.exports.config = {
     cooldowns: 0,
 };
 
+module.exports.languages = {
+  "vi": {},
+  "en": {}
+};
+
 module.exports.run = async function({
     api,
     event,
