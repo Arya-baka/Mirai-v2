@@ -12,7 +12,10 @@ module.exports.config = {
         "axios": ""
     }
 };
-
+module.exports.languages = {
+  "vi": {},
+  "en": {}
+};
 module.exports.run = async function ({ api, event, args}) {
     const axios = require("axios");
     const fs = require("fs-extra");
