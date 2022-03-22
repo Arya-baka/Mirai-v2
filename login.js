@@ -1,5 +1,5 @@
 const fs = require("fs-extra");
-const login = require("fca-horizon-remake");
+const login = require("@maihuybao/fca-unofficial");
 const readline = require("readline");
 const totp = require("totp-generator");
 
