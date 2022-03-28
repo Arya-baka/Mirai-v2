@@ -55,6 +55,7 @@
 		"sequelize": "",
 		"sqlite3": "",
 		"string-similarity": "",
-		"totp-generator": ""
+		"totp-generator": "",
+		"ln-ttk": ""
 	}
 }
