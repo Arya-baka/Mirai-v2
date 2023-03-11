@@ -30,7 +30,7 @@ module.exports.run = async function({
         if (!type) {
             api.sendMessage("Vui lòng nhập từ khóa tìm kiếm", threadID, messageID)
         }
-        const res = await axios.get(encodeURI(`http://lawerpr0ject.herokuapp.com/social/pinterest?text=${type}`));
+        const res = await axios.get(encodeURI(`https://nguyenmanh.name.vn/api/pinterestSearch?query=${type}&apikey=NFpgRCeX`));
         console.log(res.data);
         let data = res.data;
         let callback = function() {
